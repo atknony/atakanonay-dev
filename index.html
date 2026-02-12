@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Atakan Onay - Computer Engineer & Game Developer. Building immersive worlds with Unity and scalable systems with AWS.">
+    <meta name="keywords" content="Atakan Onay, Computer Engineer, Game Developer, Unity, AWS, Portfolio">
+    <meta name="author" content="Atakan Onay">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Atakan Onay - Computer Engineer & Game Developer">
+    <meta property="og:description" content="Building immersive worlds with Unity and scalable systems with AWS.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://atakanonay.dev">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/0f172a/38bdf8?text=Atakan+Onay">
+    
+    <title>Atakan Onay - Computer Engineer & Game Developer</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .blink {
+            animation: blink 1s infinite;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(56, 189, 248, 0.2);
+        }
+        
+        .glassmorphism {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-300 font-sans">
+    
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glassmorphism border-b border-slate-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="#" class="text-xl font-semibold text-white">
+                    Atakan Onay<span class="text-sky-400 blink">_</span>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="hover:text-sky-400 transition-colors">About</a>
+                    <a href="#experience" class="hover:text-sky-400 transition-colors">Experience</a>
+                    <a href="#projects" class="hover:text-sky-400 transition-colors">Projects</a>
+                    <a href="#contact" class="hover:text-sky-400 transition-colors">Contact</a>
+                    <a href="assets/atakanOnay_CV.pdf" class="bg-sky-500 hover:bg-sky-600 text-white px-5 py-2 rounded-lg transition-colors">
+                        Download CV
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-t border-slate-800">
+            <div class="container mx-auto px-6 py-6 flex flex-col space-y-4">
+                <a href="#about" class="hover:text-sky-400 transition-colors mobile-link">About</a>
+                <a href="#experience" class="hover:text-sky-400 transition-colors mobile-link">Experience</a>
+                <a href="#projects" class="hover:text-sky-400 transition-colors mobile-link">Projects</a>
+                <a href="#contact" class="hover:text-sky-400 transition-colors mobile-link">Contact</a>
+                <a href="assets/atakanOnay_CV.pdf" class="bg-sky-500 hover:bg-sky-600 text-white px-5 py-2 rounded-lg text-center transition-colors">
+                    Download CV
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center px-6 pt-20">
+        <div class="container mx-auto text-center">
+            <div class="mb-8 fade-in">
+                <div class="w-48 h-48 mx-auto rounded-full bg-gradient-to-br from-sky-400 to-blue-600 p-1 shadow-lg shadow-sky-500/50">
+                    <div class="w-full h-full rounded-full bg-slate-800 flex items-center justify-center overflow-hidden">
+                        <img src="assets/profil.jpeg" alt="Atakan Onay" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-4 fade-in">
+                Hi, I'm Atakan.
+            </h1>
+            
+            <p class="text-2xl md:text-3xl font-mono text-sky-400 mb-6 fade-in">
+                Computer Engineer
+            </p>
+            
+            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-8 fade-in">
+                Student
+            </p>
+            
+            <a href="#projects" class="inline-block bg-sky-500 hover:bg-sky-600 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-colors fade-in">
+                View My Work
+            </a>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 bg-slate-900">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-20 fade-in">
+                About Me
+            </h2>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <!-- Left: Bio Text & Stats -->
+            <div class="fade-in space-y-6">
+                <div class="space-y-5">
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        I am a Computer Engineering student nearing graduation. I don't just build games; I architect them. My passion lies in merging immersive Unity game development with scalable AWS cloud backend systems.
+                    </p>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        From designing complex game mechanics to deploying serverless architectures, I thrive on challenges that push the boundaries of what's possible in interactive experiences and cloud computing. I leverage AI and prompt engineering to optimize workflows and build intelligent systems.
+                    </p>
+                </div>
+                
+                <!-- Stats Row -->
+                <div class="grid grid-cols-3 gap-4 pt-4">
+                    <div class="bg-gradient-to-br from-slate-800 to-slate-800/50 border border-slate-700 rounded-xl p-5 text-center hover:border-sky-500/50 transition-all">
+                        <div class="text-3xl md:text-4xl font-bold text-sky-400 mb-2">4+</div>
+                        <div class="text-xs md:text-sm text-slate-400 font-medium">Years Coding</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-slate-800 to-slate-800/50 border border-slate-700 rounded-xl p-5 text-center hover:border-sky-500/50 transition-all">
+                        <div class="text-3xl md:text-4xl font-bold text-sky-400 mb-2">10+</div>
+                        <div class="text-xs md:text-sm text-slate-400 font-medium">Projects</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-slate-800 to-slate-800/50 border border-slate-700 rounded-xl p-5 text-center hover:border-sky-500/50 transition-all">
+                        <div class="text-3xl md:text-4xl font-bold text-sky-400 mb-2">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="text-xs md:text-sm text-slate-400 font-medium">Unity Expert</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right: Image with Enhanced Styling -->
+            <div class="fade-in flex justify-center lg:justify-end">
+                <div class="relative">
+                    <!-- Main Image Container -->
+                    <div class="relative w-80 h-96 rounded-2xl overflow-hidden border-2 border-sky-500/50 shadow-2xl shadow-sky-500/20">
+                        <!-- Glow Effect Behind -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-sky-500/20 via-blue-600/20 to-purple-600/20"></div>
+                        
+                        <!-- Image -->
+                        <img src="assets/profil2.jpeg" alt="Atakan Onay Coding" class="w-full h-full object-cover relative z-10">
+                        
+                        <!-- Overlay Gradient -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent z-20"></div>
+                    </div>
+                    
+                    <!-- Floating Badge - Top Right -->
+                    <div class="absolute -top-4 -right-4 bg-sky-500 text-white rounded-xl px-4 py-2 shadow-lg shadow-sky-500/50 z-30 border-2 border-sky-400">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-code text-xl"></i>
+                            <div class="text-left">
+                                <div class="text-xs font-semibold">Active</div>
+                                <div class="text-xs opacity-90">Developer</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Element - Bottom Left -->
+                    <div class="absolute -bottom-3 -left-3 bg-slate-800 border-2 border-sky-500/50 text-sky-400 rounded-lg px-3 py-2 shadow-lg z-30">
+                        <div class="flex items-center gap-2">
+                            <i class="fab fa-unity text-lg"></i>
+                            <span class="text-sm font-mono font-semibold">Unity Pro</span>
+                        </div>
+                    </div>
+                    
+                        <!-- Decorative Glow Elements -->
+                        <div class="absolute -top-8 -right-8 w-32 h-32 bg-sky-500/20 rounded-full blur-3xl -z-10"></div>
+                        <div class="absolute -bottom-8 -left-8 w-40 h-40 bg-blue-600/20 rounded-full blur-3xl -z-10"></div>
+                        <div class="absolute top-1/2 -right-12 w-24 h-24 bg-purple-600/10 rounded-full blur-2xl -z-10"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-6 bg-slate-800/30">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-4xl font-bold text-white text-center mb-16 fade-in">Experience</h2>
+            
+            <!-- Timeline Container -->
+            <div class="relative">
+                <!-- Vertical Line -->
+                <div class="absolute left-0 md:left-8 top-0 bottom-0 w-0.5 bg-slate-700"></div>
+                
+                <!-- Timeline Items -->
+                <div class="space-y-12">
+                    <!-- Experience Entry 1 -->
+                    <div class="relative pl-8 md:pl-20 fade-in">
+                        <!-- Dot -->
+                        <div class="absolute left-0 md:left-8 top-0 w-4 h-4 -ml-2 rounded-full bg-sky-500 border-4 border-slate-900"></div>
+                        
+                        <!-- Content Card -->
+                        <div class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-sky-500/50 transition-colors">
+                            <!-- Date -->
+                            <div class="text-sky-400 font-mono text-sm mb-2">June 2025 - Present</div>
+                            
+                            <!-- Role & Company -->
+                            <h3 class="text-xl font-semibold text-white mb-3">
+                                Software Engineer Intern <span class="text-slate-400">@</span> <span class="text-sky-400">CloudTech Solutions</span>
+                            </h3>
+                            
+                            <!-- Description -->
+                            <ul class="space-y-2 text-slate-300">
+                                <li class="flex items-start">
+                                    <i class="fas fa-chevron-right text-sky-400 mt-1.5 mr-3 text-xs"></i>
+                                    <span>Developed scalable backend microservices using AWS Lambda, API Gateway, and DynamoDB, reducing response time by 40%</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-chevron-right text-sky-400 mt-1.5 mr-3 text-xs"></i>
+                                    <span>Integrated Unity game clients with cloud infrastructure for real-time multiplayer features</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-chevron-right text-sky-400 mt-1.5 mr-3 text-xs"></i>
+                                    <span>Implemented CI/CD pipelines using GitHub Actions and AWS CodeDeploy for automated testing and deployment</span>
+                                </li>
+                            </ul>
+                            
+                            <!-- Tech Tags -->
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#AWS</span>
+                                <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#Unity</span>
+                                <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#Python</span>
+                                <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#CI/CD</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience Entry 2 -->
+                    <div class="relative pl-8 md:pl-20 fade-in">
+                        <!-- Dot -->
+                        <div class="absolute left-0 md:left-8 top-0 w-4 h-4 -ml-2 rounded-full bg-slate-600 border-4 border-slate-900"></div>
+                        
+                        <!-- Content Card -->
+                        <div class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-sky-500/50 transition-colors">
+                            <!-- Date -->
+                            <div class="text-slate-400 font-mono text-sm mb-2">January 2024 - May 2025</div>
+                            
+                            <!-- Role & Company -->
+                            <h3 class="text-xl font-semibold text-white mb-3">
+                                Freelance Game Developer <span class="text-slate-400">@</span> <span class="text-sky-400">Self-Employed</span>
+                            </h3>
+                            
+                            <!-- Description -->
+                            <ul class="space-y-2 text-slate-300">
+                                <li class="flex items-start">
+                                    <i class="fas fa-chevron-right text-sky-400 mt-1.5 mr-3 text-xs"></i>
+                                    <span>Built 5+ Unity games for mobile and web platforms, accumulating over 10,000 downloads across app stores</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-chevron-right text-sky-400 mt-1.5 mr-3 text-xs"></i>
+                                    <span>Designed and implemented complex game logic systems including AI pathfinding, inventory management, and combat mechanics</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-chevron-right text-sky-400 mt-1.5 mr-3 text-xs"></i>
+                                    <span>Collaborated with clients to deliver custom web applications using React, Node.js, and Firebase</span>
+                                </li>
+                            </ul>
+                            
+                            <!-- Tech Tags -->
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#Unity</span>
+                                <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#C#</span>
+                                <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#React</span>
+                                <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#Firebase</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6 bg-slate-900">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-white text-center mb-16 fade-in">Selected Projects</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="project-card bg-slate-800 rounded-xl overflow-hidden border border-slate-700 fade-in">
+                    <img src="https://via.placeholder.com/600x400/1e3a8a/38bdf8?text=Space+Shooter" alt="Space Shooter" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-3">Space Shooter</h3>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#Unity</span>
+                            <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#C#</span>
+                            <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#GameDev</span>
+                            <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#Git</span>
+                        </div>
+                        <p class="text-slate-400 text-sm mb-6 line-clamp-2">
+                            A fast-paced 2D space shooter with procedural enemy waves and power-up systems.
+                        </p>
+                        <div class="flex gap-3">
+                            <a href="https://itch.io/space-shooter" target="_blank" class="flex-1 bg-sky-500 hover:bg-sky-600 text-white text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                <i class="fas fa-gamepad"></i>
+                                Play
+                            </a>
+                            <a href="https://github.com/atakanonay/space-shooter" target="_blank" class="flex-1 border border-slate-600 hover:border-sky-400 text-slate-300 hover:text-sky-400 text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                <i class="fab fa-github"></i>
+                                Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 2 -->
+                <div class="project-card bg-slate-800 rounded-xl overflow-hidden border border-slate-700 fade-in">
+                    <img src="https://via.placeholder.com/600x400/1e3a8a/38bdf8?text=AWS+Serverless+API" alt="AWS Serverless API" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-3">AWS Serverless API</h3>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#AWS</span>
+                            <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#Lambda</span>
+                            <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#DynamoDB</span>
+                            <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#PromptEngineering</span>
+                        </div>
+                        <p class="text-slate-400 text-sm mb-6 line-clamp-2">
+                            RESTful API built with AWS Lambda, API Gateway, and DynamoDB for scalable backend services.
+                        </p>
+                        <div class="flex gap-3">
+                            <a href="https://api.atakanonay.dev" target="_blank" class="flex-1 bg-sky-500 hover:bg-sky-600 text-white text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                <i class="fas fa-external-link-alt"></i>
+                                Demo
+                            </a>
+                            <a href="https://github.com/atakanonay/serverless-api" target="_blank" class="flex-1 border border-slate-600 hover:border-sky-400 text-slate-300 hover:text-sky-400 text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                <i class="fab fa-github"></i>
+                                Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 3 -->
+                <div class="project-card bg-slate-800 rounded-xl overflow-hidden border border-slate-700 fade-in">
+                    <img src="https://via.placeholder.com/600x400/1e3a8a/38bdf8?text=Puzzle+Quest" alt="Puzzle Quest" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-3">Puzzle Quest</h3>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#Unity</span>
+                            <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#C#</span>
+                            <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#Mobile</span>
+                        </div>
+                        <p class="text-slate-400 text-sm mb-6 line-clamp-2">
+                            A mobile puzzle game with 50+ levels, featuring intuitive touch controls and smooth animations.
+                        </p>
+                        <div class="flex gap-3">
+                            <a href="https://play.google.com/store/puzzle-quest" target="_blank" class="flex-1 bg-sky-500 hover:bg-sky-600 text-white text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                <i class="fas fa-mobile-alt"></i>
+                                Play
+                            </a>
+                            <a href="https://github.com/atakanonay/puzzle-quest" target="_blank" class="flex-1 border border-slate-600 hover:border-sky-400 text-slate-300 hover:text-sky-400 text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                <i class="fab fa-github"></i>
+                                Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 4 -->
+                <div class="project-card bg-slate-800 rounded-xl overflow-hidden border border-slate-700 fade-in">
+                    <img src="https://via.placeholder.com/600x400/1e3a8a/38bdf8?text=Task+Manager+App" alt="Task Manager App" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-3">Task Manager App</h3>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#Java</span>
+                            <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#Spring</span>
+                            <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#PostgreSQL</span>
+                            <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#Git</span>
+                        </div>
+                        <p class="text-slate-400 text-sm mb-6 line-clamp-2">
+                            Full-stack task management application with user authentication and real-time updates.
+                        </p>
+                        <div class="flex gap-3">
+                            <a href="https://tasks.atakanonay.dev" target="_blank" class="flex-1 bg-sky-500 hover:bg-sky-600 text-white text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                <i class="fas fa-external-link-alt"></i>
+                                Demo
+                            </a>
+                            <a href="https://github.com/atakanonay/task-manager" target="_blank" class="flex-1 border border-slate-600 hover:border-sky-400 text-slate-300 hover:text-sky-400 text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                <i class="fab fa-github"></i>
+                                Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 5 -->
+                <div class="project-card bg-slate-800 rounded-xl overflow-hidden border border-slate-700 fade-in">
+                    <img src="https://via.placeholder.com/600x400/1e3a8a/38bdf8?text=RPG+Inventory+System" alt="RPG Inventory System" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-3">RPG Inventory System</h3>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#Unity</span>
+                            <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#C#</span>
+                            <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#UI</span>
+                        </div>
+                        <p class="text-slate-400 text-sm mb-6 line-clamp-2">
+                            Drag-and-drop inventory system with item stacking, equipment slots, and save/load functionality.
+                        </p>
+                        <div class="flex gap-3">
+                            <a href="https://itch.io/rpg-inventory" target="_blank" class="flex-1 bg-sky-500 hover:bg-sky-600 text-white text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                <i class="fas fa-play"></i>
+                                Demo
+                            </a>
+                            <a href="https://github.com/atakanonay/rpg-inventory" target="_blank" class="flex-1 border border-slate-600 hover:border-sky-400 text-slate-300 hover:text-sky-400 text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                <i class="fab fa-github"></i>
+                                Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 6 -->
+                <div class="project-card bg-slate-800 rounded-xl overflow-hidden border border-slate-700 fade-in">
+                    <img src="https://via.placeholder.com/600x400/1e3a8a/38bdf8?text=Cloud+Storage+System" alt="Cloud Storage System" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-3">Cloud Storage System</h3>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#AWS</span>
+                            <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#S3</span>
+                            <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#CloudFront</span>
+                        </div>
+                        <p class="text-slate-400 text-sm mb-6 line-clamp-2">
+                            Secure file storage solution using AWS S3, CloudFront CDN, and IAM for access control.
+                        </p>
+                        <div class="flex gap-3">
+                            <a href="https://storage.atakanonay.dev" target="_blank" class="flex-1 bg-sky-500 hover:bg-sky-600 text-white text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                <i class="fas fa-external-link-alt"></i>
+                                Demo
+                            </a>
+                            <a href="https://github.com/atakanonay/cloud-storage" target="_blank" class="flex-1 border border-slate-600 hover:border-sky-400 text-slate-300 hover:text-sky-400 text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                <i class="fab fa-github"></i>
+                                Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-slate-800/30">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold text-white mb-6 fade-in">Get In Touch</h2>
+            <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-10 fade-in">
+                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+            </p>
+            
+            <a href="mailto:contact@atakanonay.dev" class="inline-flex items-center gap-3 bg-sky-500 hover:bg-sky-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors fade-in">
+                <i class="fas fa-envelope"></i>
+                Send Email
+            </a>
+            
+            <div class="flex justify-center gap-8 mt-12 fade-in">
+                <a href="https://linkedin.com/in/atakanonay" target="_blank" class="text-4xl text-slate-400 hover:text-sky-400 transition-colors" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/atakanonay" target="_blank" class="text-4xl text-slate-400 hover:text-sky-400 transition-colors" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://instagram.com/atakanonay" target="_blank" class="text-4xl text-slate-400 hover:text-sky-400 transition-colors" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://youtube.com/@atakanonay" target="_blank" class="text-4xl text-slate-400 hover:text-sky-400 transition-colors" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-8 px-6 bg-slate-900 border-t border-slate-700">
+        <div class="container mx-auto text-center">
+            <p class="text-slate-500 text-sm">
+                &copy; 2024 Atakan Onay. Built with passion and code.
+            </p>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+        
+        // Close mobile menu when clicking a link
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+        
+        // Intersection Observer for Fade-in Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Initial load animation for hero section
+        window.addEventListener('load', () => {
+            const heroElements = document.querySelectorAll('.fade-in');
+            heroElements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('visible');
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
