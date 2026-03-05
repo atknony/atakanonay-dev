@@ -4,7 +4,7 @@
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Vercel](https://img.shields.io/badge/vercel-deployed-black.svg)
 
-Welcome to the source code of my personal portfolio website. This project showcases my journey as a **Computer Engineering Student**, focusing on **Unity Game Development** and **AWS Cloud Architecture**.
+Welcome to the source code of my personal portfolio website.
 
 🔗 **Live Demo:** [https://atakanonay.com](https://atakanonay.com)
 
