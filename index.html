@@ -1,32 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth scroll-pt-10 md:scroll-pt-16">
+<html lang="tr" class="scroll-smooth scroll-pt-10 md:scroll-pt-16">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A personal website for a computer engineer.">
+    <meta name="description" content="Bir bilgisayar mühendisinin kişisel web sitesi.">
     <meta name="keywords" content="Atakan Onay, Portfolio, Atakan, Onay,">
     <meta name="author" content="Atakan Onay">
-    
+
     <!-- Open Graph Tags -->
-    <meta property="og:title" content="Atakan Onay - Computer Engineer">
-    <meta property="og:description" content="A personal website for a computer engineer.">
+    <meta property="og:title" content="Atakan Onay - Bilgisayar Mühendisi">
+    <meta property="og:description" content="Bir bilgisayar mühendisinin kişisel web sitesi.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://atakanonay.dev">
     <meta property="og:image" content="https://via.placeholder.com/1200x630/0f172a/38bdf8?text=Atakan+Onay">
-    
+
     <title>Atakan Onay</title>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- FontAwesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -39,37 +39,37 @@
             }
         }
     </script>
-    
+
     <style>
         @keyframes blink {
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
         }
-        
+
         .blink {
             animation: blink 1s infinite;
         }
-        
+
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-        
+
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         .project-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
         .project-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 20px 40px rgba(56, 189, 248, 0.2);
         }
-        
+
         .glassmorphism {
             background: rgba(15, 23, 42, 0.8);
             backdrop-filter: blur(12px);
@@ -78,7 +78,7 @@
     </style>
 </head>
 <body class="bg-slate-900 text-slate-300 font-sans">
-    
+
     <!-- Navbar -->
     <nav class="fixed top-0 left-0 right-0 z-50 glassmorphism border-b border-slate-800">
         <div class="container mx-auto px-6 py-4">
@@ -87,146 +87,153 @@
                 <a href="#" class="text-xl font-semibold text-white">
                     Atakan Onay<span class="text-sky-400 blink">_</span>
                 </a>
-                
+
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#about" class="hover:text-sky-400 transition-colors">About</a>
-                    <a href="#experience" class="hover:text-sky-400 transition-colors">Experience</a>
-                    <a href="#projects" class="hover:text-sky-400 transition-colors">Projects</a>
-                    <a href="#contact" class="hover:text-sky-400 transition-colors">Contact</a>
-                    <a href="assets/AtakanOnay.pdf" class="bg-sky-500 hover:bg-sky-600 text-white px-5 py-2 rounded-lg transition-colors">
-                        Download CV
-                    </a>
+                    <a href="#about" class="hover:text-sky-400 transition-colors" data-i18n="nav-about">Hakkımda</a>
+                    <a href="#experience" class="hover:text-sky-400 transition-colors" data-i18n="nav-experience">Deneyim</a>
+                    <a href="#projects" class="hover:text-sky-400 transition-colors" data-i18n="nav-projects">Projeler</a>
+                    <a href="#contact" class="hover:text-sky-400 transition-colors" data-i18n="nav-contact">İletişim</a>
+                    <!-- Language Toggle -->
+                    <button onclick="toggleLanguage()" class="flex items-center gap-1 text-sm font-mono border border-slate-700 hover:border-sky-400 rounded-md px-2 py-1 transition-colors">
+                        <span class="lang-indicator-tr text-sky-400 font-semibold">TR</span>
+                        <span class="text-slate-600">/</span>
+                        <span class="lang-indicator-en text-slate-400">EN</span>
+                    </button>
+                    <a href="assets/AtakanOnay.pdf" class="bg-sky-500 hover:bg-sky-600 text-white px-5 py-2 rounded-lg transition-colors" data-i18n="nav-cv">CV İndir</a>
                 </div>
-                
+
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-btn" class="md:hidden text-white text-2xl">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
-        
+
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-t border-slate-800">
             <div class="container mx-auto px-6 py-6 flex flex-col space-y-4">
-                <a href="#about" class="hover:text-sky-400 transition-colors mobile-link">About</a>
-                <a href="#experience" class="hover:text-sky-400 transition-colors mobile-link">Experience</a>
-                <a href="#projects" class="hover:text-sky-400 transition-colors mobile-link">Projects</a>
-                <a href="#contact" class="hover:text-sky-400 transition-colors mobile-link">Contact</a>
-                <a href="assets/atakanOnay_CV.pdf" class="bg-sky-500 hover:bg-sky-600 text-white px-5 py-2 rounded-lg text-center transition-colors">
-                    Download CV
-                </a>
+                <a href="#about" class="hover:text-sky-400 transition-colors mobile-link" data-i18n="nav-about">Hakkımda</a>
+                <a href="#experience" class="hover:text-sky-400 transition-colors mobile-link" data-i18n="nav-experience">Deneyim</a>
+                <a href="#projects" class="hover:text-sky-400 transition-colors mobile-link" data-i18n="nav-projects">Projeler</a>
+                <a href="#contact" class="hover:text-sky-400 transition-colors mobile-link" data-i18n="nav-contact">İletişim</a>
+                <!-- Language Toggle Mobile -->
+                <button onclick="toggleLanguage()" class="flex items-center gap-1 text-sm font-mono border border-slate-700 hover:border-sky-400 rounded-md px-2 py-1 transition-colors w-fit">
+                    <span class="lang-indicator-tr text-sky-400 font-semibold">TR</span>
+                    <span class="text-slate-600">/</span>
+                    <span class="lang-indicator-en text-slate-400">EN</span>
+                </button>
+                <a href="assets/atakanOnay_CV.pdf" class="bg-sky-500 hover:bg-sky-600 text-white px-5 py-2 rounded-lg text-center transition-colors" data-i18n="nav-cv">CV İndir</a>
             </div>
         </div>
     </nav>
-    
+
     <!-- Hero Section -->
     <section class="min-h-screen flex items-center justify-center px-6 pt-20">
-        <div class="container mx-auto text-center">            
-            <h1 class="text-5xl md:text-7xl font-bold text-white mb-4 fade-in">
-                Hi, I'm Atakan.
+        <div class="container mx-auto text-center">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-4 fade-in" data-i18n="hero-greeting">
+                Merhaba, Ben Atakan.
             </h1>
-            
-            <p class="text-2xl md:text-3xl font-mono text-sky-400 mb-6 fade-in">
-                Computer Engineer
+
+            <p class="text-2xl md:text-3xl font-mono text-sky-400 mb-6 fade-in" data-i18n="hero-title">
+                Bilgisayar Mühendisi
             </p>
-            
-            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-8 fade-in">
-                Student
+
+            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-8 fade-in" data-i18n="hero-subtitle">
+                Öğrenci
             </p>
-            
-            <a href="#projects" class="inline-block bg-sky-500 hover:bg-sky-600 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-colors fade-in">
-                View My Work
+
+            <a href="#projects" class="inline-block bg-sky-500 hover:bg-sky-600 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-colors fade-in" data-i18n="hero-cta">
+                Projelerimi Gör
             </a>
         </div>
     </section>
-    
+
     <!-- About Section -->
     <section id="about" class="py-20 px-6 bg-slate-900">
         <div class="container mx-auto max-w-6xl">
-            <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-20 fade-in">
-                About Me
+            <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-20 fade-in" data-i18n="about-heading">
+                Hakkımda
             </h2>
-        
+
         <div class="max-w-4xl mx-auto text-center">
             <!-- Bio Text & Stats -->
             <div class="fade-in space-y-6">
                 <div class="space-y-5 text-left md:text-justify">
-                    <p class="text-lg text-slate-300 leading-relaxed">
-                        I was born in Karşıyaka, İzmir. My father is a soldier in the Turkish Army, which led us to move frequently between various cities and locations. 
+                    <p class="text-lg text-slate-300 leading-relaxed" data-i18n="about-p1">
+                        Karşıyaka, İzmir'de doğdum. Babam Türk Kara Kuvvetleri'nde asker olduğundan çeşitli şehir ve yerlere sık sık taşındık.
                     </p>
-                    <p class="text-lg text-slate-300 leading-relaxed">
-                        Currently, Ireside in Istanbul. I've had a passion for computers since I was a child, and I enjoy being creative as well as engaging in communication.
-
+                    <p class="text-lg text-slate-300 leading-relaxed" data-i18n="about-p2">
+                        Şu anda İstanbul'da yaşıyorum. Çocukluktan beri bilgisayarlara karşı büyük bir tutku duyuyorum; yaratıcı olmayı ve iletişim kurmayı seviyorum.
                     </p>
                 </div>
-                
+
                 <!-- Stats Row -->
                 <div class="grid grid-cols-3 gap-2 md:gap-4 pt-4 fade-in">
                     <div class="bg-gradient-to-br from-slate-800 to-slate-800/50 border border-slate-700 rounded-xl p-2 sm:p-4 md:p-5 text-center flex flex-col justify-center items-center hover:border-sky-500/50 transition-all">
                         <div class="text-2xl md:text-3xl lg:text-4xl font-bold text-sky-400 mb-1 md:mb-2">22</div>
-                        <div class="text-[10px] sm:text-xs md:text-sm text-slate-400 font-medium">Years Old</div>
+                        <div class="text-[10px] sm:text-xs md:text-sm text-slate-400 font-medium" data-i18n="stat-age-label">Yaşında</div>
                     </div>
-                    
+
                     <div class="bg-gradient-to-br from-slate-800 to-slate-800/50 border border-slate-700 rounded-xl p-2 sm:p-4 md:p-5 text-center flex flex-col justify-center items-center hover:border-sky-500/50 transition-all">
-                        <div class="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold text-sky-400 mb-1 md:mb-2 leading-tight">Final<br class="sm:hidden"> Year</div>
-                        <div class="text-[10px] sm:text-xs md:text-sm text-slate-400 font-medium leading-tight">Undergraduate<br class="sm:hidden"> Student</div>
+                        <div class="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold text-sky-400 mb-1 md:mb-2 leading-tight" data-i18n="stat-year-value">Son<br class="sm:hidden"> Sınıf</div>
+                        <div class="text-[10px] sm:text-xs md:text-sm text-slate-400 font-medium leading-tight" data-i18n="stat-year-label">Lisans<br class="sm:hidden"> Öğrencisi</div>
                     </div>
-                    
+
                     <div class="bg-gradient-to-br from-slate-800 to-slate-800/50 border border-slate-700 rounded-xl p-2 sm:p-4 md:p-5 text-center flex flex-col justify-center items-center hover:border-sky-500/50 transition-all">
                         <div class="text-2xl md:text-3xl lg:text-4xl font-bold text-sky-400 mb-1 md:mb-2">
                             <i class="fas fa-guitar"></i>
                         </div>
-                        <div class="text-[10px] sm:text-xs md:text-sm text-slate-400 font-medium">Musician</div>
+                        <div class="text-[10px] sm:text-xs md:text-sm text-slate-400 font-medium" data-i18n="stat-musician-label">Müzisyen</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- Experience Section -->
     <section id="experience" class="py-20 px-6 bg-slate-800/30">
         <div class="container mx-auto max-w-4xl">
-            <h2 class="text-4xl font-bold text-white text-center mb-16 fade-in">Experience</h2>
-            
+            <h2 class="text-4xl font-bold text-white text-center mb-16 fade-in" data-i18n="exp-heading">Deneyim</h2>
+
             <!-- Timeline Container -->
             <div class="relative">
                 <!-- Vertical Line -->
                 <div class="absolute left-0 md:left-8 top-0 bottom-0 w-0.5 bg-slate-700"></div>
-                
+
                 <!-- Timeline Items -->
                 <div class="space-y-12">
                     <!-- Experience Entry 1 -->
                     <div class="relative pl-8 md:pl-20 fade-in">
                         <!-- Dot -->
                         <div class="absolute left-0 md:left-8 top-0 w-4 h-4 -ml-2 rounded-full bg-sky-500 border-4 border-slate-900"></div>
-                        
+
                         <!-- Content Card -->
                         <div class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-sky-500/50 transition-colors">
                             <!-- Date -->
-                            <div class="text-sky-400 font-mono text-sm mb-2">July - Agust 2025</div>
-                            
+                            <div class="text-sky-400 font-mono text-sm mb-2" data-i18n="exp1-date">Temmuz - Ağustos 2025</div>
+
                             <!-- Role & Company -->
-                            <h3 class="text-xl font-semibold text-white mb-3">
-                                Software Engineer Intern <span class="text-slate-400">@</span> <span class="text-sky-400">Gen Yazılım</span>
+                            <h3 class="text-xl font-semibold text-white mb-3" data-i18n="exp1-role">
+                                Yazılım Mühendisi Stajyeri <span class="text-slate-400">@</span> <span class="text-sky-400">Gen Yazılım</span>
                             </h3>
-                            
+
                             <!-- Description -->
                             <ul class="space-y-2 text-slate-300">
                                 <li class="flex items-start">
                                     <i class="fas fa-chevron-right text-sky-400 mt-1.5 mr-3 text-xs"></i>
-                                    <span>We completed a three-week Python course, progressing from begginer to intermediate levels.</span>
+                                    <span data-i18n="exp1-li1">Başlangıçtan orta seviyeye kadar ilerleyerek üç haftalık bir Python kursu tamamladık.</span>
                                 </li>
                                 <li class="flex items-start">
                                     <i class="fas fa-chevron-right text-sky-400 mt-1.5 mr-3 text-xs"></i>
-                                    <span>During this time, we explored algorithm structures and then initiated a backend project using Django.</span>
+                                    <span data-i18n="exp1-li2">Bu süreçte algoritma yapılarını inceledik ve ardından Django kullanarak bir backend projesi başlattık.</span>
                                 </li>
                                 <li class="flex items-start">
                                     <i class="fas fa-chevron-right text-sky-400 mt-1.5 mr-3 text-xs"></i>
-                                    <span>To support this, we utilized SQL databases</span>
+                                    <span data-i18n="exp1-li3">Bunu desteklemek için SQL veritabanlarını kullandık.</span>
                                 </li>
                             </ul>
-                            
+
                             <!-- Tech Tags -->
                             <div class="flex flex-wrap gap-2 mt-4">
                                 <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#Python</span>
@@ -235,34 +242,34 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Experience Entry 2 -->
                     <div class="relative pl-8 md:pl-20 fade-in">
                         <!-- Dot -->
                         <div class="absolute left-0 md:left-8 top-0 w-4 h-4 -ml-2 rounded-full bg-slate-600 border-4 border-slate-900"></div>
-                        
+
                         <!-- Content Card -->
                         <div class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-sky-500/50 transition-colors">
                             <!-- Date -->
-                            <div class="text-slate-400 font-mono text-sm mb-2">November 2023 / December 2025 - Present</div>
-                            
+                            <div class="text-slate-400 font-mono text-sm mb-2" data-i18n="exp2-date">Kasım 2023 / Aralık 2025 - Günümüz</div>
+
                             <!-- Role & Company -->
-                            <h3 class="text-xl font-semibold text-white mb-3">
-                                Editor <span class="text-slate-400">@</span> <span class="text-sky-400">Podcast Community and HSD Okan</span>
+                            <h3 class="text-xl font-semibold text-white mb-3" data-i18n="exp2-role">
+                                Editör <span class="text-slate-400">@</span> <span class="text-sky-400">Podcast Topluluğu ve HSD Okan</span>
                             </h3>
-                            
+
                             <!-- Description -->
                             <ul class="space-y-2 text-slate-300">
                                 <li class="flex items-start">
                                     <i class="fas fa-chevron-right text-sky-400 mt-1.5 mr-3 text-xs"></i>
-                                    <span>I am volunteering with the Podcast Community and Huawei Students Developer Club in the Okan Üniversitesi, where I edit podcasts, instagram reels and prepare them for export.</span>
+                                    <span data-i18n="exp2-li1">Okan Üniversitesi'ndeki Podcast Topluluğu ve Huawei Students Developer Club'da gönüllü olarak çalışıyor; podcast'leri, Instagram reels'lerini düzenliyor ve yayına hazırlıyorum.</span>
                                 </li>
                                 <li class="flex items-start">
                                     <i class="fas fa-chevron-right text-sky-400 mt-1.5 mr-3 text-xs"></i>
-                                    <span>Through this experience, I have developed skills in teamwork, problem-solving, and communication.</span>
+                                    <span data-i18n="exp2-li2">Bu deneyim sayesinde takım çalışması, problem çözme ve iletişim becerilerimi geliştirdim.</span>
                                 </li>
                             </ul>
-                            
+
                             <!-- Tech Tags -->
                             <div class="flex flex-wrap gap-2 mt-4">
                                 <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#Capcut</span>
@@ -275,40 +282,40 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Projects Section -->
     <section id="projects" class="py-20 px-6 bg-slate-900">
         <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-white text-center mb-16 fade-in">Selected Projects</h2>
-            
+            <h2 class="text-4xl font-bold text-white text-center mb-16 fade-in" data-i18n="projects-heading">Seçili Projeler</h2>
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="project-card bg-slate-800 rounded-xl overflow-hidden border border-slate-700 fade-in h-full flex flex-col">
                     <div class="p-6 flex flex-col flex-1">
-                        <h3 class="text-xl font-semibold text-white mb-3">This Site</h3>
+                        <h3 class="text-xl font-semibold text-white mb-3" data-i18n="project1-title">Bu Site</h3>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#Html5</span>
                             <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#Tailwind-Css</span>
                             <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#portfolio-website</span>
                         </div>
-                        <p class="text-slate-400 text-sm mb-6 line-clamp-2">
-                            Source code for my personal website. A minimal, responsive portfolio for a Computer Engineer.
+                        <p class="text-slate-400 text-sm mb-6 line-clamp-2" data-i18n="project1-desc">
+                            Kişisel web sitem için kaynak kodu. Bir Bilgisayar Mühendisi için minimal, duyarlı bir portfolyo.
                         </p>
                         <div class="flex gap-3 mt-auto">
-                            <a href="#" class="flex-1 bg-sky-500 hover:bg-sky-600 text-white text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                            <a href="#" class="flex-1 bg-sky-500 hover:bg-sky-600 text-white text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2" data-i18n="project1-demo">
                                 <i class="fas fa-external-link-alt"></i>
                                 Demo
                             </a>
-                            <a href="https://github.com/atknony/atakanonay-dev" target="_blank" class="flex-1 border border-slate-600 hover:border-sky-400 text-slate-300 hover:text-sky-400 text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                            <a href="https://github.com/atknony/atakanonay-dev" target="_blank" class="flex-1 border border-slate-600 hover:border-sky-400 text-slate-300 hover:text-sky-400 text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2" data-i18n="project1-code">
                                 <i class="fab fa-github"></i>
-                                Code
+                                Kod
                             </a>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="project-card bg-slate-800 rounded-xl overflow-hidden border border-slate-700 fade-in h-full flex flex-col">
                     <div class="p-6 flex flex-col flex-1">
-                        <h3 class="text-xl font-semibold text-white mb-3">Book Recommendation Website</h3>
+                        <h3 class="text-xl font-semibold text-white mb-3" data-i18n="project2-title">Kitap Öneri Sitesi</h3>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#React</span>
                             <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#Aws</span>
@@ -316,113 +323,113 @@
                             <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#DynomoDB</span>
                             <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#S3</span>
                         </div>
-                        <p class="text-slate-400 text-sm mb-6 line-clamp-2">
-                            AI-powered library book recommendation system built with React, AWS Lambda, DynamoDB, and Bedrock (Claude 3 Haiku).
+                        <p class="text-slate-400 text-sm mb-6 line-clamp-2" data-i18n="project2-desc">
+                            React, AWS Lambda, DynamoDB ve Bedrock (Claude 3 Haiku) ile oluşturulmuş yapay zeka destekli kütüphane kitap öneri sistemi.
                         </p>
                         <div class="flex gap-3 mt-auto">
-                            <a href="https://d3s3nr7a2lwmpk.cloudfront.net/" target="_blank" class="flex-1 bg-sky-500 hover:bg-sky-600 text-white text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                            <a href="https://d3s3nr7a2lwmpk.cloudfront.net/" target="_blank" class="flex-1 bg-sky-500 hover:bg-sky-600 text-white text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2" data-i18n="project2-demo">
                                 <i class="fas fa-external-link-alt"></i>
                                 Demo
                             </a>
-                            <a href="https://github.com/atknony/AWS_BookRecomandation" target="_blank" class="flex-1 border border-slate-600 hover:border-sky-400 text-slate-300 hover:text-sky-400 text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                            <a href="https://github.com/atknony/AWS_BookRecomandation" target="_blank" class="flex-1 border border-slate-600 hover:border-sky-400 text-slate-300 hover:text-sky-400 text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2" data-i18n="project2-code">
                                 <i class="fab fa-github"></i>
-                                Code
+                                Kod
                             </a>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="project-card bg-slate-800 rounded-xl overflow-hidden border border-slate-700 fade-in h-full flex flex-col">
                     <div class="p-6 flex flex-col flex-1">
-                        <h3 class="text-xl font-semibold text-white mb-3">Fly or Die</h3>
+                        <h3 class="text-xl font-semibold text-white mb-3" data-i18n="project3-title">Fly or Die</h3>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#Godot</span>
                             <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#Gdscript</span>
                         </div>
-                        <p class="text-slate-400 text-sm mb-6 line-clamp-2">
-                            Mobile Flappy Bird Type Game.
+                        <p class="text-slate-400 text-sm mb-6 line-clamp-2" data-i18n="project3-desc">
+                            Mobil Flappy Bird Tarzı Oyun.
                         </p>
                         <div class="flex gap-3 mt-auto">
-                            <a href="https://yivorionn.itch.io/fly-or-die" target="_blank" class="flex-1 bg-sky-500 hover:bg-sky-600 text-white text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                            <a href="https://yivorionn.itch.io/fly-or-die" target="_blank" class="flex-1 bg-sky-500 hover:bg-sky-600 text-white text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2" data-i18n="project3-play">
                                 <i class="fas fa-mobile-alt"></i>
-                                Play
+                                Oyna
                             </a>
-                            <a href="https://github.com/ivorionn/fly_or_die" target="_blank" class="flex-1 border border-slate-600 hover:border-sky-400 text-slate-300 hover:text-sky-400 text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                            <a href="https://github.com/ivorionn/fly_or_die" target="_blank" class="flex-1 border border-slate-600 hover:border-sky-400 text-slate-300 hover:text-sky-400 text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2" data-i18n="project3-code">
                                 <i class="fab fa-github"></i>
-                                Code
+                                Kod
                             </a>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="project-card bg-slate-800 rounded-xl overflow-hidden border border-slate-700 fade-in h-full flex flex-col">
                     <div class="p-6 flex flex-col flex-1">
-                        <h3 class="text-xl font-semibold text-white mb-3">CSP Exam Timetabling</h3>
+                        <h3 class="text-xl font-semibold text-white mb-3" data-i18n="project4-title">CSP Sınav Zaman Çizelgelemesi</h3>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#Python</span>
                             <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#FastAPI</span>
                             <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#React</span>
                             <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#Backtraking</span>
                         </div>
-                        <p class="text-slate-400 text-sm mb-6 line-clamp-2">
-                            A full-stack project which focusing on solving a constraint satisfaction problem (CSP) with several approaches for exam timetabling.
+                        <p class="text-slate-400 text-sm mb-6 line-clamp-2" data-i18n="project4-desc">
+                            Sınav zaman çizelgelemesi için kısıt tatmin problemi (CSP) çözmeye odaklanan çeşitli yaklaşımlarla geliştirilmiş full-stack bir proje.
                         </p>
                         <div class="flex gap-3 mt-auto">
-                            <a href="https://csp-exam-timetabling.vercel.app" target="_blank" class="flex-1 bg-sky-500 hover:bg-sky-600 text-white text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                            <a href="https://csp-exam-timetabling.vercel.app" target="_blank" class="flex-1 bg-sky-500 hover:bg-sky-600 text-white text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2" data-i18n="project4-demo">
                                 <i class="fas fa-external-link-alt"></i>
                                 Demo
                             </a>
-                            <a href="https://github.com/e-cagan/csp-exam-timetabling" target="_blank" class="flex-1 border border-slate-600 hover:border-sky-400 text-slate-300 hover:text-sky-400 text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                            <a href="https://github.com/e-cagan/csp-exam-timetabling" target="_blank" class="flex-1 border border-slate-600 hover:border-sky-400 text-slate-300 hover:text-sky-400 text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2" data-i18n="project4-code">
                                 <i class="fab fa-github"></i>
-                                Code
+                                Kod
                             </a>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="project-card bg-slate-800 rounded-xl overflow-hidden border border-slate-700 fade-in h-full flex flex-col">
                     <div class="p-6 flex flex-col flex-1">
-                        <h3 class="text-xl font-semibold text-white mb-3">This Site</h3>
+                        <h3 class="text-xl font-semibold text-white mb-3" data-i18n="project5-title">Bu Site</h3>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#Html5</span>
                             <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#Tailwind-Css</span>
                             <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#portfolio-website</span>
                         </div>
-                        <p class="text-slate-400 text-sm mb-6 line-clamp-2">
-                            Source code for my personal website. A minimal, responsive portfolio for a Computer Engineer.
+                        <p class="text-slate-400 text-sm mb-6 line-clamp-2" data-i18n="project5-desc">
+                            Kişisel web sitem için kaynak kodu. Bir Bilgisayar Mühendisi için minimal, duyarlı bir portfolyo.
                         </p>
                         <div class="flex gap-3 mt-auto">
-                            <a href="#" target="_blank" class="flex-1 bg-sky-500 hover:bg-sky-600 text-white text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                            <a href="#" target="_blank" class="flex-1 bg-sky-500 hover:bg-sky-600 text-white text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2" data-i18n="project5-demo">
                                 <i class="fas fa-external-link-alt"></i>
                                 Demo
                             </a>
-                            <a href="https://github.com/atknony/atakanonay-dev" target="_blank" class="flex-1 border border-slate-600 hover:border-sky-400 text-slate-300 hover:text-sky-400 text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                            <a href="https://github.com/atknony/atakanonay-dev" target="_blank" class="flex-1 border border-slate-600 hover:border-sky-400 text-slate-300 hover:text-sky-400 text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2" data-i18n="project5-code">
                                 <i class="fab fa-github"></i>
-                                Code
+                                Kod
                             </a>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="project-card bg-slate-800 rounded-xl overflow-hidden border border-slate-700 fade-in h-full flex flex-col">
                     <div class="p-6 flex flex-col flex-1">
-                        <h3 class="text-xl font-semibold text-white mb-3">This Site</h3>
+                        <h3 class="text-xl font-semibold text-white mb-3" data-i18n="project6-title">Bu Site</h3>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#Html5</span>
                             <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#Tailwind-Css</span>
                             <span class="bg-slate-700 text-sky-400 px-3 py-1 rounded-full text-xs font-mono">#portfolio-website</span>
                         </div>
-                        <p class="text-slate-400 text-sm mb-6 line-clamp-2">
-                            Source code for my personal website. A minimal, responsive portfolio for a Computer Engineer.
+                        <p class="text-slate-400 text-sm mb-6 line-clamp-2" data-i18n="project6-desc">
+                            Kişisel web sitem için kaynak kodu. Bir Bilgisayar Mühendisi için minimal, duyarlı bir portfolyo.
                         </p>
                         <div class="flex gap-3 mt-auto">
-                            <a href="#" target="_blank" class="flex-1 bg-sky-500 hover:bg-sky-600 text-white text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                            <a href="#" target="_blank" class="flex-1 bg-sky-500 hover:bg-sky-600 text-white text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2" data-i18n="project6-demo">
                                 <i class="fas fa-external-link-alt"></i>
                                 Demo
                             </a>
-                            <a href="https://github.com/atknony/atakanonay-dev" target="_blank" class="flex-1 border border-slate-600 hover:border-sky-400 text-slate-300 hover:text-sky-400 text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                            <a href="https://github.com/atknony/atakanonay-dev" target="_blank" class="flex-1 border border-slate-600 hover:border-sky-400 text-slate-300 hover:text-sky-400 text-center py-2 rounded-lg transition-colors flex items-center justify-center gap-2" data-i18n="project6-code">
                                 <i class="fab fa-github"></i>
-                                Code
+                                Kod
                             </a>
                         </div>
                     </div>
@@ -430,20 +437,20 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Contact Section -->
     <section id="contact" class="py-20 px-6 bg-slate-800/30">
         <div class="container mx-auto text-center">
-            <h2 class="text-4xl font-bold text-white mb-6 fade-in">Get In Touch</h2>
-            <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-10 fade-in">
-                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+            <h2 class="text-4xl font-bold text-white mb-6 fade-in" data-i18n="contact-heading">İletişime Geç</h2>
+            <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-10 fade-in" data-i18n="contact-desc">
+                Yeni projeler, yaratıcı fikirler veya vizyonunuzun bir parçası olma fırsatları hakkında konuşmaya her zaman açığım.
             </p>
-            
-            <a href="mailto:contact@atakanonay.dev" class="inline-flex items-center gap-3 bg-sky-500 hover:bg-sky-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors fade-in">
+
+            <a href="mailto:contact@atakanonay.dev" class="inline-flex items-center gap-3 bg-sky-500 hover:bg-sky-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors fade-in" data-i18n="contact-btn">
                 <i class="fas fa-envelope"></i>
-                Send Email
+                E-posta Gönder
             </a>
-            
+
             <div class="flex justify-center gap-8 mt-12 fade-in">
                 <a href="https://www.linkedin.com/in/atknony" target="_blank" class="text-4xl text-slate-400 hover:text-sky-400 transition-colors" aria-label="LinkedIn">
                     <i class="fab fa-linkedin"></i>
@@ -460,30 +467,187 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Footer -->
     <footer class="py-8 px-6 bg-slate-900 border-t border-slate-700">
         <div class="container mx-auto text-center">
-            <p class="text-slate-500 text-sm">
-                &copy; 2024 Atakan Onay. Built with passion and code.
+            <p class="text-slate-500 text-sm" data-i18n="footer-text">
+                &copy; 2024 Atakan Onay. Tutku ve kodla inşa edildi.
             </p>
         </div>
     </footer>
-    
+
     <script>
-        // Mobile Menu Toggle
+        // ── Language Data ──────────────────────────────────────────────────
+        const translations = {
+            tr: {
+                'nav-about':      'Hakkımda',
+                'nav-experience': 'Deneyim',
+                'nav-projects':   'Projeler',
+                'nav-contact':    'İletişim',
+                'nav-cv':         'CV İndir',
+
+                'hero-greeting': 'Merhaba, Ben Atakan.',
+                'hero-title':    'Bilgisayar Mühendisi',
+                'hero-subtitle': 'Öğrenci',
+                'hero-cta':      'Projelerimi Gör',
+
+                'about-heading': 'Hakkımda',
+                'about-p1': 'Karşıyaka, İzmir\'de doğdum. Babam Türk Kara Kuvvetleri\'nde asker olduğundan çeşitli şehir ve yerlere sık sık taşındık.',
+                'about-p2': 'Şu anda İstanbul\'da yaşıyorum. Çocukluktan beri bilgisayarlara karşı büyük bir tutku duyuyorum; yaratıcı olmayı ve iletişim kurmayı seviyorum.',
+
+                'stat-age-label':     'Yaşında',
+                'stat-year-value':    'Son<br class="sm:hidden"> Sınıf',
+                'stat-year-label':    'Lisans<br class="sm:hidden"> Öğrencisi',
+                'stat-musician-label':'Müzisyen',
+
+                'exp-heading':  'Deneyim',
+                'exp1-date':    'Temmuz - Ağustos 2025',
+                'exp1-role':    'Yazılım Mühendisi Stajyeri <span class="text-slate-400">@</span> <span class="text-sky-400">Gen Yazılım</span>',
+                'exp1-li1':     'Başlangıçtan orta seviyeye kadar ilerleyerek üç haftalık bir Python kursu tamamladık.',
+                'exp1-li2':     'Bu süreçte algoritma yapılarını inceledik ve ardından Django kullanarak bir backend projesi başlattık.',
+                'exp1-li3':     'Bunu desteklemek için SQL veritabanlarını kullandık.',
+                'exp2-date':    'Kasım 2023 / Aralık 2025 - Günümüz',
+                'exp2-role':    'Editör <span class="text-slate-400">@</span> <span class="text-sky-400">Podcast Topluluğu ve HSD Okan</span>',
+                'exp2-li1':     'Okan Üniversitesi\'ndeki Podcast Topluluğu ve Huawei Students Developer Club\'da gönüllü olarak çalışıyor; podcast\'leri, Instagram reels\'lerini düzenliyor ve yayına hazırlıyorum.',
+                'exp2-li2':     'Bu deneyim sayesinde takım çalışması, problem çözme ve iletişim becerilerimi geliştirdim.',
+
+                'projects-heading': 'Seçili Projeler',
+                'project1-title':   'Bu Site',
+                'project1-desc':    'Kişisel web sitem için kaynak kodu. Bir Bilgisayar Mühendisi için minimal, duyarlı bir portfolyo.',
+                'project1-demo':    '<i class="fas fa-external-link-alt"></i> Demo',
+                'project1-code':    '<i class="fab fa-github"></i> Kod',
+                'project2-title':   'Kitap Öneri Sitesi',
+                'project2-desc':    'React, AWS Lambda, DynamoDB ve Bedrock (Claude 3 Haiku) ile oluşturulmuş yapay zeka destekli kütüphane kitap öneri sistemi.',
+                'project2-demo':    '<i class="fas fa-external-link-alt"></i> Demo',
+                'project2-code':    '<i class="fab fa-github"></i> Kod',
+                'project3-title':   'Fly or Die',
+                'project3-desc':    'Mobil Flappy Bird Tarzı Oyun.',
+                'project3-play':    '<i class="fas fa-mobile-alt"></i> Oyna',
+                'project3-code':    '<i class="fab fa-github"></i> Kod',
+                'project4-title':   'CSP Sınav Zaman Çizelgelemesi',
+                'project4-desc':    'Sınav zaman çizelgelemesi için kısıt tatmin problemi (CSP) çözmeye odaklanan çeşitli yaklaşımlarla geliştirilmiş full-stack bir proje.',
+                'project4-demo':    '<i class="fas fa-external-link-alt"></i> Demo',
+                'project4-code':    '<i class="fab fa-github"></i> Kod',
+                'project5-title':   'Bu Site',
+                'project5-desc':    'Kişisel web sitem için kaynak kodu. Bir Bilgisayar Mühendisi için minimal, duyarlı bir portfolyo.',
+                'project5-demo':    '<i class="fas fa-external-link-alt"></i> Demo',
+                'project5-code':    '<i class="fab fa-github"></i> Kod',
+                'project6-title':   'Bu Site',
+                'project6-desc':    'Kişisel web sitem için kaynak kodu. Bir Bilgisayar Mühendisi için minimal, duyarlı bir portfolyo.',
+                'project6-demo':    '<i class="fas fa-external-link-alt"></i> Demo',
+                'project6-code':    '<i class="fab fa-github"></i> Kod',
+
+                'contact-heading': 'İletişime Geç',
+                'contact-desc':    'Yeni projeler, yaratıcı fikirler veya vizyonunuzun bir parçası olma fırsatları hakkında konuşmaya her zaman açığım.',
+                'contact-btn':     '<i class="fas fa-envelope"></i> E-posta Gönder',
+
+                'footer-text': '&copy; 2024 Atakan Onay. Tutku ve kodla inşa edildi.',
+            },
+            en: {
+                'nav-about':      'About',
+                'nav-experience': 'Experience',
+                'nav-projects':   'Projects',
+                'nav-contact':    'Contact',
+                'nav-cv':         'Download CV',
+
+                'hero-greeting': "Hi, I'm Atakan.",
+                'hero-title':    'Computer Engineer',
+                'hero-subtitle': 'Student',
+                'hero-cta':      'View My Work',
+
+                'about-heading': 'About Me',
+                'about-p1': 'I was born in Karşıyaka, İzmir. My father is a soldier in the Turkish Army, which led us to move frequently between various cities and locations.',
+                'about-p2': "Currently, I reside in Istanbul. I've had a passion for computers since I was a child, and I enjoy being creative as well as engaging in communication.",
+
+                'stat-age-label':     'Years Old',
+                'stat-year-value':    'Final<br class="sm:hidden"> Year',
+                'stat-year-label':    'Undergraduate<br class="sm:hidden"> Student',
+                'stat-musician-label':'Musician',
+
+                'exp-heading':  'Experience',
+                'exp1-date':    'July - August 2025',
+                'exp1-role':    'Software Engineer Intern <span class="text-slate-400">@</span> <span class="text-sky-400">Gen Yazılım</span>',
+                'exp1-li1':     'We completed a three-week Python course, progressing from beginner to intermediate levels.',
+                'exp1-li2':     'During this time, we explored algorithm structures and then initiated a backend project using Django.',
+                'exp1-li3':     'To support this, we utilized SQL databases.',
+                'exp2-date':    'November 2023 / December 2025 - Present',
+                'exp2-role':    'Editor <span class="text-slate-400">@</span> <span class="text-sky-400">Podcast Community and HSD Okan</span>',
+                'exp2-li1':     'I am volunteering with the Podcast Community and Huawei Students Developer Club at Okan University, where I edit podcasts, Instagram reels and prepare them for export.',
+                'exp2-li2':     'Through this experience, I have developed skills in teamwork, problem-solving, and communication.',
+
+                'projects-heading': 'Selected Projects',
+                'project1-title':   'This Site',
+                'project1-desc':    'Source code for my personal website. A minimal, responsive portfolio for a Computer Engineer.',
+                'project1-demo':    '<i class="fas fa-external-link-alt"></i> Demo',
+                'project1-code':    '<i class="fab fa-github"></i> Code',
+                'project2-title':   'Book Recommendation Website',
+                'project2-desc':    'AI-powered library book recommendation system built with React, AWS Lambda, DynamoDB, and Bedrock (Claude 3 Haiku).',
+                'project2-demo':    '<i class="fas fa-external-link-alt"></i> Demo',
+                'project2-code':    '<i class="fab fa-github"></i> Code',
+                'project3-title':   'Fly or Die',
+                'project3-desc':    'Mobile Flappy Bird Type Game.',
+                'project3-play':    '<i class="fas fa-mobile-alt"></i> Play',
+                'project3-code':    '<i class="fab fa-github"></i> Code',
+                'project4-title':   'CSP Exam Timetabling',
+                'project4-desc':    'A full-stack project focusing on solving a constraint satisfaction problem (CSP) with several approaches for exam timetabling.',
+                'project4-demo':    '<i class="fas fa-external-link-alt"></i> Demo',
+                'project4-code':    '<i class="fab fa-github"></i> Code',
+                'project5-title':   'This Site',
+                'project5-desc':    'Source code for my personal website. A minimal, responsive portfolio for a Computer Engineer.',
+                'project5-demo':    '<i class="fas fa-external-link-alt"></i> Demo',
+                'project5-code':    '<i class="fab fa-github"></i> Code',
+                'project6-title':   'This Site',
+                'project6-desc':    'Source code for my personal website. A minimal, responsive portfolio for a Computer Engineer.',
+                'project6-demo':    '<i class="fas fa-external-link-alt"></i> Demo',
+                'project6-code':    '<i class="fab fa-github"></i> Code',
+
+                'contact-heading': 'Get In Touch',
+                'contact-desc':    "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.",
+                'contact-btn':     '<i class="fas fa-envelope"></i> Send Email',
+
+                'footer-text': '&copy; 2024 Atakan Onay. Built with passion and code.',
+            }
+        };
+
+        // ── Language Toggle ────────────────────────────────────────────────
+        let currentLang = 'tr';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key] !== undefined) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            document.querySelectorAll('.lang-indicator-tr').forEach(el => {
+                el.className = 'lang-indicator-tr ' + (lang === 'tr' ? 'text-sky-400 font-semibold' : 'text-slate-400');
+            });
+            document.querySelectorAll('.lang-indicator-en').forEach(el => {
+                el.className = 'lang-indicator-en ' + (lang === 'en' ? 'text-sky-400 font-semibold' : 'text-slate-400');
+            });
+        }
+
+        function toggleLanguage() {
+            setLanguage(currentLang === 'tr' ? 'en' : 'tr');
+        }
+
+        // ── Mobile Menu ────────────────────────────────────────────────────
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileLinks = document.querySelectorAll('.mobile-link');
-        
+
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
             const icon = mobileMenuBtn.querySelector('i');
             icon.classList.toggle('fa-bars');
             icon.classList.toggle('fa-times');
         });
-        
-        // Close mobile menu when clicking a link
+
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
@@ -492,13 +656,13 @@
                 icon.classList.add('fa-bars');
             });
         });
-        
-        // Intersection Observer for Fade-in Animation
+
+        // ── Fade-in Animation ──────────────────────────────────────────────
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -506,13 +670,11 @@
                 }
             });
         }, observerOptions);
-        
-        // Observe all fade-in elements
+
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
-        
-        // Initial load animation for hero section
+
         window.addEventListener('load', () => {
             const heroElements = document.querySelectorAll('.fade-in');
             heroElements.forEach((el, index) => {
